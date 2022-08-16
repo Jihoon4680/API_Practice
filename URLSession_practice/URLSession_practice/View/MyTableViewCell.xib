@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyTableViewCell" rowHeight="131" id="uor-hS-814" userLabel="MyTableViewCell" customClass="MyTableViewCell" customModule="URLSession_practice" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="131"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uor-hS-814" id="iHp-sJ-hnV">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="131"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3SS-6Y-MF5">
+                        <rect key="frame" x="10" y="10" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="A35-Oj-Z2w"/>
+                            <constraint firstAttribute="height" constant="70" id="tGS-1j-siy"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CityName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ub3-3s-JkR">
+                        <rect key="frame" x="10" y="87" width="70" height="24"/>
+                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FRE-ga-Vcr">
+                        <rect key="frame" x="80" y="10" width="334" height="64"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3aH-Xk-A0D">
+                                <rect key="frame" x="0.0" y="0.0" width="83.666666666666671" height="64"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재온도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9r-nx-FG3">
+                                        <rect key="frame" x="17.333333333333325" y="0.0" width="48.666666666666657" height="22"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bE2-fk-aA1">
+                                        <rect key="frame" x="29.333333333333329" y="42" width="25" height="22"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zxf-h4-t7x">
+                                <rect key="frame" x="83.666666666666657" y="0.0" width="83.333333333333343" height="64"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최저기온" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAF-Vp-06i">
+                                        <rect key="frame" x="17.333333333333339" y="0.0" width="48.666666666666657" height="22"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzD-fY-6NX">
+                                        <rect key="frame" x="29" y="42" width="25" height="22"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kqj-9h-3u1">
+                                <rect key="frame" x="167" y="0.0" width="83.666666666666686" height="64"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최고기온" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5da-hF-Nur">
+                                        <rect key="frame" x="17.333333333333311" y="0.0" width="48.666666666666657" height="22"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lj3-4m-wpb">
+                                        <rect key="frame" x="26.666666666666686" y="42" width="30" height="22"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nNx-hJ-UQj">
+                                <rect key="frame" x="250.66666666666671" y="0.0" width="83.333333333333343" height="64"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날씨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ae3-CW-08e">
+                                        <rect key="frame" x="26.666666666666629" y="0.0" width="29.666666666666671" height="22"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wether" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ljh-fn-ezg">
+                                        <rect key="frame" x="10.000000000000004" y="42" width="63.333333333333343" height="22"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="5da-hF-Nur" firstAttribute="top" secondItem="jAF-Vp-06i" secondAttribute="top" id="3DS-G9-5Uv"/>
+                            <constraint firstItem="jAF-Vp-06i" firstAttribute="top" secondItem="G9r-nx-FG3" secondAttribute="top" id="SSt-pA-YQg"/>
+                            <constraint firstItem="ae3-CW-08e" firstAttribute="top" secondItem="5da-hF-Nur" secondAttribute="top" id="f4j-DD-yRx"/>
+                            <constraint firstItem="3aH-Xk-A0D" firstAttribute="leading" secondItem="FRE-ga-Vcr" secondAttribute="leading" id="mp1-Cl-78r"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="3SS-6Y-MF5" firstAttribute="leading" secondItem="iHp-sJ-hnV" secondAttribute="leading" constant="10" id="0ns-10-DCL"/>
+                    <constraint firstAttribute="trailing" secondItem="FRE-ga-Vcr" secondAttribute="trailing" id="ESq-q7-RQ2"/>
+                    <constraint firstItem="Ub3-3s-JkR" firstAttribute="leading" secondItem="3SS-6Y-MF5" secondAttribute="leading" id="I5A-z3-S3Z"/>
+                    <constraint firstItem="FRE-ga-Vcr" firstAttribute="leading" secondItem="3SS-6Y-MF5" secondAttribute="trailing" id="Tbc-gj-Fou"/>
+                    <constraint firstItem="3SS-6Y-MF5" firstAttribute="top" secondItem="iHp-sJ-hnV" secondAttribute="top" constant="10" id="ZCZ-t9-wfn"/>
+                    <constraint firstItem="FRE-ga-Vcr" firstAttribute="top" secondItem="3SS-6Y-MF5" secondAttribute="top" id="gbw-8w-fBg"/>
+                    <constraint firstItem="Ub3-3s-JkR" firstAttribute="trailing" secondItem="3SS-6Y-MF5" secondAttribute="trailing" id="go8-EX-TvK"/>
+                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Ub3-3s-JkR" secondAttribute="bottom" constant="20" id="nZp-4E-urP"/>
+                    <constraint firstItem="FRE-ga-Vcr" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="iHp-sJ-hnV" secondAttribute="bottom" constant="-20" id="oUW-Y3-855"/>
+                    <constraint firstItem="Ub3-3s-JkR" firstAttribute="top" secondItem="3SS-6Y-MF5" secondAttribute="bottom" constant="7" id="uTi-Hr-8c5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="25"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="cityName" destination="Ub3-3s-JkR" id="sx8-xu-lSh"/>
+                <outlet property="currentTemp" destination="bE2-fk-aA1" id="gDI-wP-Juo"/>
+                <outlet property="highTemp" destination="lj3-4m-wpb" id="svZ-Tu-fWQ"/>
+                <outlet property="icon" destination="3SS-6Y-MF5" id="Gk7-fa-j4f"/>
+                <outlet property="lowTemp" destination="kzD-fY-6NX" id="hRW-ao-mJu"/>
+                <outlet property="weatherDsc" destination="ljh-fn-ezg" id="ZQO-aw-VF3"/>
+            </connections>
+            <point key="canvasLocation" x="111.59420289855073" y="114.84375"/>
+        </tableViewCell>
+    </objects>
+</document>
