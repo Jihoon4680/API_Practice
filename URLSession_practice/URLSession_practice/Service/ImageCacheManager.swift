@@ -19,21 +19,21 @@ extension UIImageView {
         print(" imageCacheManager - setImageUrl ")
         
         
-        /// cache할 객체의 key값을 string으로 생성
+        // cache할 객체의 key값을 string으로 생성
         let cachedKey = NSString(string: url)
         
-        /// cache된 이미지가 존재하면 그 이미지를 사용 (API 호출안하는 형태)
+        // cache된 이미지가 존재하면 그 이미지를 사용 (API 호출안하는 형태)
         if let cachedImage = ImageCacheManager.shared.object(forKey: cachedKey) {
             self.image = cachedImage
             return
         }
+        // 데이터 통신이기때문에 main으로 보낼 필요 없음
         DispatchQueue.global(qos: .background).async {
             guard let url = URL(string: url) else { return }
             URLSession.shared.dataTask(with: url) { (data, result, error) in
                 guard error == nil else {
                     DispatchQueue.main.async { [weak self] in
                         self?.image = UIImage()
-                        print("시발 진짜")
                     }
                     return
                 }
@@ -44,7 +44,6 @@ extension UIImageView {
                         /// 캐싱
                         ImageCacheManager.shared.setObject(image, forKey: cachedKey)
                         self?.image = image
-                        print("cache")
                     }
                 }
             }.resume()
