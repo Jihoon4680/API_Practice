@@ -8,6 +8,7 @@
 import UIKit
 import Charts
 
+// 여기서 VM만들고 VC가 View가되고 ??
 class MainViewController: UIViewController{
     
     var barChartView = MyBarchart()
@@ -22,7 +23,7 @@ class MainViewController: UIViewController{
         setNavigationTitle()
         // 셀을 선택 했을 때 컨플리션블락으로 데이터 전달.
         mainView.cellTapAction = navigationDetailView(_:)
-        
+        //ViewModel의 역할.
         DispatchQueue.global(qos: .background).async {
             MyAlamofire.shared.getCovid(URL: MyUrl.BASE_URL, completion: { result in
                 switch result {
@@ -30,6 +31,7 @@ class MainViewController: UIViewController{
                 case .success(let citys):
                     DispatchQueue.main.async { [ weak self] in
                         guard let self = self else { return }
+                        // View의 역할 -> 근데 이걸 Viewmodel에서 알려주는거지
                         mainView.totalCorona.text = String(citys[0].totalCase)
                         mainView.newTotalCorona.text = String(citys[0].newCase)
                         self.mainCitys = citys
@@ -52,21 +54,12 @@ class MainViewController: UIViewController{
         }
     }
     
-    //MARK: - UI설정 ( Object 생성 )
-    let label : UILabel = {
-        let label = UILabel()
-        label.text = "좆되네이거"
-        label.textColor = .red
-        label.font = UIFont.systemFont(ofSize: 30)
-        return label
-    }()
-    
     fileprivate func navigationDetailView(_ city: City) {
         let detailVC = DetailViewController()
         detailVC.receivedModel(city: city)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
-    
+    //ViewModel의 역할
     //MARK: - barchardata setup
     fileprivate func setChartData(citys : [City]) -> [String : Int]? {
         //신규확진자 수 기준으로 상위 5개도시 선별
@@ -93,7 +86,7 @@ class MainViewController: UIViewController{
     }
 }
 
-
+//이건 어캐해..?
 extension MainViewController : ChartViewDelegate {
     // 차트를 누르면 해당 뷰컨트롤러로 이동
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
