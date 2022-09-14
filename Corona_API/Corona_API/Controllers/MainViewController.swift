@@ -13,87 +13,93 @@ class MainViewController: UIViewController{
     
     var barChartView = MyBarchart()
     var mainCitys = [City]()
-    
+   
+    var cellTapAction: ((_ City: City) -> Void)?
+    let mainViewModel = MainViewModel()
     override func viewDidLoad() {
         
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        let mainView = MainView(frame: self.view.bounds)
-        self.view.addSubview(mainView)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(bind), name: NSNotification.Name(rawValue: Notification.complete), object: nil)
+        
         setNavigationTitle()
         // 셀을 선택 했을 때 컨플리션블락으로 데이터 전달.
-        mainView.cellTapAction = navigationDetailView(_:)
+        cellTapAction = navigationDetailView(_:)
         //ViewModel의 역할.
-        DispatchQueue.global(qos: .background).async {
-            MyAlamofire.shared.getCovid(URL: MyUrl.BASE_URL, completion: { result in
-                switch result {
-                
-                case .success(let citys):
-                    DispatchQueue.main.async { [ weak self] in
-                        guard let self = self else { return }
-                        // View의 역할 -> 근데 이걸 Viewmodel에서 알려주는거지
-                        mainView.totalCorona.text = String(citys[0].totalCase)
-                        mainView.newTotalCorona.text = String(citys[0].newCase)
-                        self.mainCitys = citys
-                        // 한국 코로나 배열 요소 삭제
-                        // 데이터 처리를 하는데 main에서 돌려야될까...
-                        self.mainCitys.remove(at: 0)
-                        mainView.citys = self.mainCitys
-                        
-                        // 상위 5개 도시를 추출
-                        let filterDic = self.setChartData(citys: self.mainCitys)
-                        mainView.chartView.chartModel = filterDic
-                        mainView.collectionView.reloadData()
-                        mainView.chartView.delegate = self
-                    }
-                    
-                case .failure(let error):
-                    print(error)
-                }
-            })
-        }
+    }
+    
+    @objc fileprivate func bind(){
+        print("called mainVC - bind")
+        let mainView = MainView(frame: self.view.bounds)
+        mainView.collectionView.dataSource = self
+        mainView.collectionView.delegate = self
+        mainView.chartView.delegate = self
+        
+        mainView.totalCorona.text = mainViewModel.koreaTotal
+        mainView.newTotalCorona.text = "\(String(describing: mainViewModel.koreaNew!))"
+        mainView.chartView.chartModel = mainViewModel.filterDic
+        self.view.addSubview(mainView)
+        
     }
     
     fileprivate func navigationDetailView(_ city: City) {
         let detailVC = DetailViewController()
-        detailVC.receivedModel(city: city)
+        detailVC.detailViewModel.detailCity = city
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     //ViewModel의 역할
     //MARK: - barchardata setup
-    fileprivate func setChartData(citys : [City]) -> [String : Int]? {
-        //신규확진자 수 기준으로 상위 5개도시 선별
-        let array = citys.sorted(by: {$0.newCase > $1.newCase})
-        
-        let arraySlice = array.prefix(upTo: 5)
-        print("arraySlice\(arraySlice)")
-        let newArray = Array(arraySlice)
-        
-        var filterDic = [String:Int]()
-        
-        for arr in newArray {
-            let city = arr.countryName
-            let newCase = arr.newCase
-            
-            filterDic.updateValue(newCase, forKey: city)
-        }
-        return filterDic
-    }
+    
     
     //MARK: 네비게이션 타이틀 설정
     func setNavigationTitle(){
         self.navigationItem.title = "코로나 확진자 수"
     }
 }
+extension MainViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return mainViewModel.mainCitys.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
+            if let cell = cell as? MainCollectionViewCell {
+                cell.backgroundColor = .white
+                cell.city = mainViewModel.mainCitys[indexPath.item]
+                cell.layer.borderWidth = 5
+                cell.layer.borderColor = UIColor.black.cgColor
+                cell.layer.cornerRadius = 10
+        }
+        return cell
+    }
+    
+    
+    
+}
+extension MainViewController : UICollectionViewDelegate {
+    
+    // 컬렉션을 택 했을때 엑션
+    func cellTap(_ city: City) {
+        cellTapAction!(city)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // cell click
+        cellTap(mainViewModel.mainCitys[indexPath.item])
+    }
+}
+
 
 //이건 어캐해..?
 extension MainViewController : ChartViewDelegate {
     // 차트를 누르면 해당 뷰컨트롤러로 이동
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         // chart가 클릭 됐을 때 해당 도시정보 접근 ( 신규확진자 기준 ).
-        guard let selectedCity = mainCitys.filter( { $0.newCase == Int(entry.y) }).first else { return }
         let detailVC = DetailViewController()
-        detailVC.receivedModel(city: selectedCity)
+       
+        detailVC.detailViewModel.filterCity(entry: entry, citys: mainViewModel.mainCitys)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

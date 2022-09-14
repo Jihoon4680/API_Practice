@@ -18,7 +18,23 @@ struct Covid: Codable {
 struct City: Codable {
     let countryName, totalCase,percentage: String
     let newCase : Int
+    
+    init(countryName : String, totalCase : String, percentage : String, newCase : Int){
+        self.countryName = countryName
+        self.totalCase = totalCase
+        self.percentage = percentage
+        self.newCase = newCase
+    }
+    // 빈값 이니셜라이저
+    init(){
+        self.countryName = "0"
+        self.totalCase = "0"
+        self.percentage = "0"
+        self.newCase = 0
+    }
+    
 }
+
 
 let CityList: [String] = [
     "korea","seoul", "busan", "daegu",

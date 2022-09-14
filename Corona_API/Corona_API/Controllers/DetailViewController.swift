@@ -9,20 +9,27 @@ import UIKit
 
 class DetailViewController : UIViewController{
     
-    var detailCity : City?
-    private var detailView : DetailView!
+    var detailViewModel = DetailViewModel()
+    
+  
     
     override func viewDidLoad() {
+        print("detailVC viewdidload")
         super.viewDidLoad()
-        //뷰가 로드 됐을때 설정돼있는 City로 초기화
-        let detailView = DetailView(frame: self.view.bounds, city: detailCity!)
-        self.detailView = detailView
-        view.addSubview(detailView)
+        bind()
+        self.view.backgroundColor = .white
+       
     }
     
-    func receivedModel(city : City){
-        detailCity = city
+    fileprivate func bind(){
+        print("detail bind - called")
+        let detailView1 = DetailView(frame: self.view.bounds)
+        detailView1.total.text = detailViewModel.detailCity.totalCase
+        detailView1.new.text = "\(String(describing: detailViewModel.detailCity.totalCase))"
+        detailView1.cityName.text = detailViewModel.detailCity.countryName
+        // add 될 때 init이 콜이된다.?
+        
+        view.addSubview(detailView1)
     }
-    
     
 }

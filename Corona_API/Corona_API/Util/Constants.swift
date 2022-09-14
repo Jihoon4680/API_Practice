@@ -15,3 +15,6 @@ enum MyUrl{
     ]
     
 }
+enum Notification{
+    static let complete = "complete"
+}

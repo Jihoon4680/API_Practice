@@ -14,7 +14,7 @@ let cellID = "Cell"
 class MainView : UIView{
     
     var citys: [City] = []
-    var cellTapAction: ((_ City: City) -> Void)?
+    
     
     
     override init(frame: CGRect) {
@@ -150,9 +150,7 @@ class MainView : UIView{
     
     //MARK: CollectionView Auolayout
     fileprivate func setupCollection() {
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        
+      
         addSubview(collectionView)
         
         NSLayoutConstraint.activate([
@@ -177,36 +175,6 @@ class MainView : UIView{
     }
     
     
-    // 컬렉션을 택 했을때 엑션
-    func cellTap(_ city: City) {
-        cellTapAction!(city)
-    }
     
-}
-extension MainView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return citys.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
-            if let cell = cell as? MainCollectionViewCell {
-                cell.backgroundColor = .white
-                cell.city = citys[indexPath.item]
-                cell.layer.borderWidth = 5
-                cell.layer.borderColor = UIColor.black.cgColor
-                cell.layer.cornerRadius = 10
-        }
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // cell click
-        cellTap(citys[indexPath.item])
-    }
-    
-}
-extension MainView : UICollectionViewDelegate {
     
 }

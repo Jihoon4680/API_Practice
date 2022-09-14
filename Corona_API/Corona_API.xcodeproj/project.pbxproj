@@ -10,7 +10,6 @@
 		20081DEF28C5A7CF00126099 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20081DEE28C5A7CF00126099 /* DetailViewController.swift */; };
 		20081DF128C5A7E700126099 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20081DF028C5A7E700126099 /* DetailView.swift */; };
 		20081DF428C5CE3D00126099 /* BarChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20081DF328C5CE3D00126099 /* BarChartModel.swift */; };
-		2012AE0C28C4987D002D7DBF /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2012AE0B28C4987D002D7DBF /* CellViewModel.swift */; };
 		2029301F28BDE0EE00EF1F1B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2029301E28BDE0EE00EF1F1B /* Model.swift */; };
 		2029302228BE17E600EF1F1B /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2029302128BE17E600EF1F1B /* Error.swift */; };
 		2029302428BE17EC00EF1F1B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2029302328BE17EC00EF1F1B /* Constants.swift */; };
@@ -23,6 +22,8 @@
 		205302F628B608D600061143 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 205302F428B608D600061143 /* LaunchScreen.storyboard */; };
 		205302FE28B6198800061143 /* MyAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205302FD28B6198800061143 /* MyAlamofire.swift */; };
 		2053030028B6F71500061143 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205302FF28B6F71500061143 /* MainView.swift */; };
+		205A876728CC443700E85C27 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205A876628CC443700E85C27 /* MainViewModel.swift */; };
+		205A876928CC446600E85C27 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205A876828CC446600E85C27 /* DetailViewModel.swift */; };
 		631F79426F04548C971C8635 /* Pods_Corona_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2078FADCD7F697E212230B4 /* Pods_Corona_API.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +31,6 @@
 		20081DEE28C5A7CF00126099 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		20081DF028C5A7E700126099 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		20081DF328C5CE3D00126099 /* BarChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartModel.swift; sourceTree = "<group>"; };
-		2012AE0B28C4987D002D7DBF /* CellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
 		2029301E28BDE0EE00EF1F1B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		2029302128BE17E600EF1F1B /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		2029302328BE17EC00EF1F1B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -45,6 +45,8 @@
 		205302F728B608D600061143 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		205302FD28B6198800061143 /* MyAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlamofire.swift; sourceTree = "<group>"; };
 		205302FF28B6F71500061143 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		205A876628CC443700E85C27 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		205A876828CC446600E85C27 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		A632D0A883B0F51B8C59F28F /* Pods-Corona_API.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Corona_API.release.xcconfig"; path = "Target Support Files/Pods-Corona_API/Pods-Corona_API.release.xcconfig"; sourceTree = "<group>"; };
 		B2078FADCD7F697E212230B4 /* Pods_Corona_API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Corona_API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC2CA1BB37EF35FD665CAF09 /* Pods-Corona_API.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Corona_API.debug.xcconfig"; path = "Target Support Files/Pods-Corona_API/Pods-Corona_API.debug.xcconfig"; sourceTree = "<group>"; };
@@ -96,13 +98,13 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		2029302528BE18EC00EF1F1B /* Resource */ = {
+		2029302528BE18EC00EF1F1B /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				2029302828BF44E900EF1F1B /* MyBarChart.swift */,
 				205302FD28B6198800061143 /* MyAlamofire.swift */,
 			);
-			path = Resource;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		2029302C28BFB5C700EF1F1B /* View */ = {
@@ -166,14 +168,23 @@
 			isa = PBXGroup;
 			children = (
 				2029302028BE17C900EF1F1B /* Util */,
-				2029302528BE18EC00EF1F1B /* Resource */,
+				2029302528BE18EC00EF1F1B /* Service */,
 				2029302E28BFB5D800EF1F1B /* Model */,
-				202932C628C0A31800EF1F1B /* Controllers */,
 				2029302C28BFB5C700EF1F1B /* View */,
+				202932C628C0A31800EF1F1B /* Controllers */,
+				205A876A28CC446E00E85C27 /* ViewModel */,
 				2029301D28BDCD2100EF1F1B /* App */,
-				2012AE0B28C4987D002D7DBF /* CellViewModel.swift */,
 			);
 			path = Corona_API;
+			sourceTree = "<group>";
+		};
+		205A876A28CC446E00E85C27 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				205A876628CC443700E85C27 /* MainViewModel.swift */,
+				205A876828CC446600E85C27 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		55F0752172629E8CA1B7E517 /* Pods */ = {
@@ -306,13 +317,14 @@
 				205302FE28B6198800061143 /* MyAlamofire.swift in Sources */,
 				2029301F28BDE0EE00EF1F1B /* Model.swift in Sources */,
 				2029302928BF44E900EF1F1B /* MyBarChart.swift in Sources */,
+				205A876728CC443700E85C27 /* MainViewModel.swift in Sources */,
 				20081DF128C5A7E700126099 /* DetailView.swift in Sources */,
 				20081DF428C5CE3D00126099 /* BarChartModel.swift in Sources */,
 				2053030028B6F71500061143 /* MainView.swift in Sources */,
 				2029302228BE17E600EF1F1B /* Error.swift in Sources */,
 				20081DEF28C5A7CF00126099 /* DetailViewController.swift in Sources */,
+				205A876928CC446600E85C27 /* DetailViewModel.swift in Sources */,
 				205302EC28B608D500061143 /* SceneDelegate.swift in Sources */,
-				2012AE0C28C4987D002D7DBF /* CellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,7 @@ class MyAlamofire{
     func getCovid(URL url : String,
                    completion : @escaping (Result<[City],MyError> )-> Void){
         AF.request(url, method: .get, parameters: MyUrl.param)
+            .validate()
           .responseData( completionHandler: { response in
               switch response.result {
             case let .success(data):
@@ -38,7 +39,7 @@ class MyAlamofire{
                   completion(.failure(MyError.noData))
               }
             case let .failure(error):
-                  completion(.failure(.noData))
+                  print(error)
             }
           })
       }

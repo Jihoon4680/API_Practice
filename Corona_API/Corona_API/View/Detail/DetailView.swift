@@ -10,16 +10,11 @@ import UIKit
 
 class DetailView : UIView{
     
-    var detailCity: City?
     
-    required init(frame: CGRect, city : City) {
+    required override init(frame: CGRect) {
         super.init(frame: frame)
-        print("detailview init")
         self.backgroundColor = .white
-        detailCity = city
         setUpAutolayout()
-        setData()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -135,14 +130,6 @@ class DetailView : UIView{
         ])
     }
     
-    fileprivate func setData(){
-        guard let city = detailCity else {
-            return
-        }
-        cityName.text = city.countryName
-        total.text = city.totalCase
-        new.text = "\(city.newCase)"
-        
-    }
+   
     
 }
